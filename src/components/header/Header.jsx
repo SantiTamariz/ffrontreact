@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import NewCategory from '../NewCategory';
+import NewCategory from '../newCategory/NewCategory';
 
-function Header() {
-    const [showNewCategoryModal, setShowNewCategoryModal] = useState(false);
-  const [categories, setCategories] = useState([]); // Replace with your category state
+function Header( {handleNewCategory}) {
+  const [showNewCategoryModal, setShowNewCategoryModal] = useState(false);
 
-  const handleNewCategory = () => {
+  const showNewCategory = () => {
     setShowNewCategoryModal(true);
   };
 
-  const addCategory = (newCategory) => {
-    setCategories((prevCategories) => [...prevCategories, newCategory]);
+  const hideNewCategory = () => {
     setShowNewCategoryModal(false);
+    // Remove the modal backdrop manually
+    const modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+    if (modalBackdrop) {
+      modalBackdrop.parentNode.removeChild(modalBackdrop);
+    }
   };
-
 
   return (
     <header>
@@ -34,12 +36,12 @@ function Header() {
               <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#new-product-modal" id="new-product">New Product</button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-primary" data-toggle="modal" data-target="#new-category-modal" id="new-category">New Category</button>
+              <button className="btn btn-primary" data-toggle="modal" data-target="#new-category-modal" id="new-category" onClick={showNewCategory}>New Category</button>
             </li>
           </ul>
         </div>
       </nav>
-      {showNewCategoryModal && <NewCategory addCategory={addCategory} />}
+      {showNewCategoryModal && <NewCategory handleNewCategory={handleNewCategory} hideNewCategory={hideNewCategory} />}
     </header>
   );
 }

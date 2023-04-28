@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function NewCategory({ addCategory }) {
+function NewCategory({ handleNewCategory, hideNewCategory }) {
   const [newCategoryName, setNewCategoryName] = useState('');
 
   const handleNewCategorySave = () => {
@@ -12,7 +12,8 @@ function NewCategory({ addCategory }) {
       };
 
       // Call the addCategory function from the parent component (Header) to add the new category
-      addCategory(newCategory);
+      handleNewCategory(newCategory);
+      hideNewCategory();
 
       // Clear the input field
       setNewCategoryName('');

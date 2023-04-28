@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ProductCard from './ProductCard';
 
-function ProductList({ categories, products }) {
+function ProductList({ categories, products, addToCart }) {
 
     const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -44,6 +44,7 @@ function ProductList({ categories, products }) {
                                             <ProductCard
                                                 key={product.id}
                                                 product={product}
+                                                addToCart={addToCart}
                                             />
                                         </div>
                                     )
