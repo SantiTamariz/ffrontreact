@@ -1,0 +1,142 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Fox Terrier",
+      "image": "./resources/FoxTerrier.JPG",
+      "description": "El perro Fox Terrier es una familia de perros que se caracteriza por ser perros de caza muy obedientes.",
+      "code": "DOG01",
+      "price": 100.99,
+      "category": 1,
+      "stock": 5
+    },
+    {
+      "id": 2,
+      "name": "Beagle",
+      "image": "resources/Beagle.jpg",
+      "description": "El Beagle es un perro que se puso de moda a lo largo del año pasado y que es muy cariñoso y bueno para recoger la caza.",
+      "code": "DOG02",
+      "price": 199.99,
+      "category": 1,
+      "stock": 20
+    },
+    {
+      "id": 3,
+      "name": "Golden Retriever",
+      "image": "resources/GoldenRetriever.jpg",
+      "description": "Es una de las razas más populares en todo el mundo debido a su naturaleza amable, inteligente y leal.",
+      "code": "DOG03",
+      "price": 250.00,
+      "category": 1,
+      "stock": 10
+    },
+    {
+      "id": 4,
+      "name": "Persa",
+      "image": "resources/Persa.jpg",
+      "description": "El Persa es una raza de gato de pelo largo que se caracteriza por ser tranquilo y cariñoso con sus dueños.",
+      "code": "CAT01",
+      "price": 75.95,
+      "category": 2,
+      "stock": 10
+    },
+    {
+      "id": 5,
+      "name": "Siames",
+      "image": "resources/Siames.jpeg",
+      "description": "El Siames es un gato de raza que se caracteriza por su pelaje de color oscuro con manchas y sus ojos azules brillantes.",
+      "code": "CAT02",
+      "price": 30.00,
+      "category": 2,
+      "stock": 5
+    },
+    {
+      "id": 6,
+      "name": "Bengalí",
+      "image": "resources/Bengali.jpeg",
+      "description": "El Bengalí es un gato de raza exótica que se caracteriza por su pelaje de color anaranjado con manchas negras y su naturaleza curiosa y juguetona.",
+      "code": "CAT03",
+      "price": 50.99,
+      "category": 2,
+      "stock": 20
+    },
+    {
+      "id": 7,
+      "name": "Pez Dorado",
+      "image": "resources/Dorado.jpg",
+      "description": "El pez dorado es un pez de agua dulce muy popular como mascota por su belleza y facilidad de cuidado.",
+      "code": "FISH01",
+      "price": 10.99,
+      "category": 3,
+      "stock": 10
+    },
+    {
+      "id": 8,
+      "name": "Pez Betta",
+      "image": "resources/Betta.jpg",
+      "description": "El pez Betta, también conocido como luchador de Siam, es un pez de agua dulce muy popular en acuarios por su belleza y agilidad.",
+      "code": "FISH02",
+      "price": 19.99,
+      "category": 3,
+      "stock": 5
+    },
+    {
+      "id": 9,
+      "name": "Pez Disco",
+      "image": "resources/Disco.jpg",
+      "description": "El pez Disco es un pez tropical de agua dulce muy popular en acuarios por su belleza y colorido.",
+      "code": "FISH03",
+      "price": 5.99,
+      "category": 3,
+      "stock": 20
+    },
+    {
+      "id": 10,
+      "name": "Canario",
+      "image": "resources/Canario.jpg",
+      "description": "El canario es un ave pequeña y colorida originaria de las Islas Canarias. Es conocido por su canto melodioso.",
+      "code": "BIRD01",
+      "price": 12.99,
+      "category": 4,
+      "stock": 10
+    },
+    {
+      "id": 11,
+      "name": "Loro Gris Africano",
+      "image": "resources/Loro.jpg",
+      "description": "El loro gris africano es una especie de loro inteligente y conocida por su capacidad para imitar el habla humana.",
+      "code": "BIRD02",
+      "price": 13.99,
+      "category": 4,
+      "stock": 5
+    },
+    {
+      "id": 12,
+      "name": "Periquito Australiano",
+      "image": "resources/periquito.jpg",
+      "description": "El periquito australiano es una pequeña ave exótica y sociable que es fácil de cuidar y popular como mascota.",
+      "code": "BIRD03",
+      "price": 8.99,
+      "category": 4,
+      "stock": 20
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Perros"
+    },
+    {
+      "id": 2,
+      "name": "Gatos"
+    },
+    {
+      "id": 3,
+      "name": "Peces"
+    },
+    {
+      "id": 4,
+      "name": "Pajaros"
+    }
+  ]
+}
