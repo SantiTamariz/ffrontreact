@@ -1,0 +1,35 @@
+/* Style the header */
+header {
+    background-color: #dc0000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Style the navigation links */
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  nav a {
+    color: rgb(255, 0, 0);
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Style the new product and new category buttons */
+  #new-product {
+    margin-right: 10px;
+  }
+  
+  #new-category {
+    margin-left: 10px;
+  }
+  

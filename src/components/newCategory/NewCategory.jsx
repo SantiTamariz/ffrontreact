@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 
-function NewCategory({ handleNewCategory, hideNewCategory }) {
+function NewCategory({ handleNewCategory, hideNewCategory, categories }) {
   const [newCategoryName, setNewCategoryName] = useState('');
+  // Find the highest ID in the current products list
+  const maxId = categories.reduce((max, product) => (product.id > max ? product.id : max), 0);
 
   const handleNewCategorySave = () => {
     if (newCategoryName) {
       // Create a new category object from the user input
       const newCategory = {
-        id: Math.random().toString(36).substr(2, 9), // Generate a unique ID
+        id: maxId+1, // Generate a unique ID
         name: newCategoryName,
       };
 
       // Call the addCategory function from the parent component (Header) to add the new category
       handleNewCategory(newCategory);
-      hideNewCategory();
+      //hideNewCategory();
 
       // Clear the input field
       setNewCategoryName('');
@@ -47,7 +49,7 @@ function NewCategory({ handleNewCategory, hideNewCategory }) {
             <button type="button" className="btn btn-secondary" data-dismiss="modal">
               Cancel
             </button>
-            <button type="button" className="btn btn-primary" id="new-category-save" onClick={handleNewCategorySave}>
+            <button type="button" className="btn btn-primary" id="new-category-save" data-dismiss="modal" onClick={handleNewCategorySave}>
               Save
             </button>
           </div>
