@@ -12,9 +12,13 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    // Load product data from JSON file
-    setProducts(data.products);
-    setCategories(data.categories);
+    fetch('http://localhost:8080/products/list')
+      .then(response => response.json())
+      .then(data => setProducts(data));
+
+    fetch('http://localhost:8080/categories/list')
+      .then(response => response.json())
+      .then(data => setCategories(data));
   }, []);
 
   const addToCart = (product) => {
