@@ -102,7 +102,7 @@
   }
   
   .card-body p.card-text.stock.out-of-stock {
-    color: #dc3545;
+    color: #6a00ff;
   }
   
   .card-img img.out-of-stock {

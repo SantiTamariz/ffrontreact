@@ -1,0 +1,91 @@
+/* Style the modal container */
+.modal-login {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Style the modal content */
+  .modal-content {
+    width: 300px;
+  }
+  
+  /* Style the modal header */
+  .modal-header {
+    background-color: #6a00ff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Style the modal title */
+  .modal-title {
+    margin: 0;
+  }
+  
+  /* Style the modal body */
+  .modal-body {
+    padding: 20px;
+  }
+  
+  /* Style the form inputs */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style the form submit button */
+  .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #6a00ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Style the "Login instead" link button */
+  .btn-link {
+    background-color: transparent;
+    color: #6a00ff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style the footer */
+  .modal-footer {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Style the navigation links */
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  nav a {
+    color: #6a00ff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  

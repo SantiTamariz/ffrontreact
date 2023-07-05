@@ -1,6 +1,6 @@
 /* Style the header */
 header {
-    background-color: #dc0000;
+    background-color: #6a00ff;
     color: white;
     padding: 20px;
     text-align: center;
@@ -14,7 +14,7 @@ header {
   }
   
   nav a {
-    color: rgb(255, 0, 0);
+    color: #6a00ff;
     margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
