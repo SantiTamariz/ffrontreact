@@ -30,26 +30,28 @@ function ShoppingCard({ product, removeFromCart, decreaseFromCart, increaseFromC
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">Code: {code}</p>
                     <p className="card-text">Price: ${price.toFixed(2)}</p>
-                    <p className="card-text">Total price: ${(price*quantity).toFixed(2)}</p>
+                    <p className="card-text">Total price: ${(price * quantity).toFixed(2)}</p>
                     <p className={`card-text stock`}>Quantity: {quantity}</p>
-                    <button className="btn btn-primary" onClick={removeFromCartItem}>
-                        Remove from Cart
-                    </button>
-                    <div className='button-plus-less'>
-                    <button
-                        className={`btn btn-primary ${product.stock === 0 ? 'out-of-stock' : ''}`}
-                        onClick={increaseFromCartItem}
-                        disabled={product.stock === 0}
-                    >
-                        +
-                    </button>
-
-                    <button className="btn btn-primary" onClick={decreaseFromCartItem}>
-                        -
-                    </button>
+                    <div className='buttons'>
+                        <button className="btn btn-primary remove-button" onClick={removeFromCartItem}>
+                            Remove from Cart
+                        </button>
+                        <div className='button-plus-less'>
+                            <button
+                                className={`btn btn-primary plus-button ${product.stock === 0 ? 'out-of-stock' : ''}`}
+                                onClick={increaseFromCartItem}
+                                disabled={product.stock === 0}
+                            >
+                                +
+                            </button>
+                            <button className="btn btn-primary minus-button" onClick={decreaseFromCartItem}>
+                                -
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }

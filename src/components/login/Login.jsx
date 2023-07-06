@@ -36,7 +36,6 @@ function Login({ handleLogin }) {
       };
       console.log(user);
       // Perform the registration API call with the user data
-      // Replace 'http://localhost:8080/users/register' with the actual registration endpoint
       fetch('http://localhost:8080/users/save', {
         method: 'POST',
         headers: {
@@ -47,7 +46,7 @@ function Login({ handleLogin }) {
         .then((response) => response.json())
         .then((data) => {
           // Handle the registration response
-          console.log(data); // You can update this with your desired logic
+          console.log(data);
           // After successful registration, you can automatically log in the user
           handleLogin(data.idUser);
         })
@@ -62,7 +61,6 @@ function Login({ handleLogin }) {
         password,
       };
       // Perform the login API call with the user credentials
-      // Replace 'http://localhost:8080/users/login' with the actual login endpoint
       fetch('http://localhost:8080/users/login', {
         method: 'POST',
         headers: {
@@ -73,7 +71,7 @@ function Login({ handleLogin }) {
         .then((response) => response.json())
         .then((data) => {
           // Handle the login response
-          console.log(data); // You can update this with your desired logic
+          console.log(data);
           // After successful login, you can store the 'idUser' value and perform any necessary actions
           handleLogin(data.idUser);
         })

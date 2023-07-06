@@ -3,8 +3,7 @@ import NewCategory from '../newCategory/NewCategory';
 import NewProduct from '../newProduct/NewProduct';
 import './Header.css';
 
-
-function Header({ handleNewCategory, handleNewProduct, categories, products }) {
+function Header({ handleNewCategory, handleNewProduct, categories, products, handleShowOrders, handleGoBack, showOrders }) {
   const [showNewCategoryModal, setShowNewCategoryModal] = useState(false);
   const [showNewProductModal, setShowNewProductModal] = useState(false);
 
@@ -19,7 +18,6 @@ function Header({ handleNewCategory, handleNewProduct, categories, products }) {
     if (modalBackdrop) {
       modalBackdrop.parentNode.removeChild(modalBackdrop);
     }
-
   };
 
   const showNewProduct = () => {
@@ -34,6 +32,13 @@ function Header({ handleNewCategory, handleNewProduct, categories, products }) {
     }
   };
 
+  const handleOrdersClick = () => {
+    handleShowOrders();
+  };
+
+  const handleGoBackClick = () => {
+    handleGoBack();
+  };
 
   return (
     <header>
@@ -50,6 +55,15 @@ function Header({ handleNewCategory, handleNewProduct, categories, products }) {
             <li className="nav-item">
               <a className="nav-link" href="#">Contact</a>
             </li>
+            {showOrders ? ( // Conditionally render "Back" button when orders are shown
+              <li className="nav-item button-margin">
+                <button className="btn btn-primary" onClick={handleGoBackClick}>Back</button>
+              </li>
+            ) : (
+              <li className="nav-item button-margin">
+                <button className="btn btn-primary" onClick={handleOrdersClick}>Orders</button>
+              </li>
+            )}
             <li className="nav-item button-margin">
               <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#new-product-modal" id="new-product" onClick={showNewProduct}>New Product</button>
             </li>

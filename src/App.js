@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer';
 import ShoppingCart from './components/shoppingCard/ShoppingCart';
 import data from './data.json';
 import Login from './components/login/Login';
+import OrderList from './components/order/OrderList';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -13,6 +14,8 @@ function App() {
   const [cart, setCart] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState('');
+  const [orders, setOrders] = useState([]); // Add orders state variable
+  const [showOrders, setShowOrders] = useState(false); // Add showOrders state variable
 
   useEffect(() => {
     fetch('http://localhost:8080/products/list')
@@ -26,7 +29,9 @@ function App() {
 
   const handleLogin = (id) => {
     setIsLoggedIn(true);
+    console.log(id);
     setUserId(id);
+    console.log(userId);
   };
 
   const addToCart = (product) => {
@@ -74,6 +79,31 @@ function App() {
     setCart([]);
   };
 
+  const handleShowOrder = () => {
+    console.log("llamada a orders");
+    console.log(userId);
+    fetch(`http://localhost:8080/orders/findByUserId/${userId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Pass the orders data to the OrderList component
+        // Update the state or perform any necessary actions
+        console.log(data); // Verify the response data
+
+        // Example: Set the orders data in a state variable
+        setOrders(data);
+        setShowOrders(true);
+      })
+      .catch((error) => {
+        console.error('Error fetching orders:', error);
+        // Handle error if needed
+      });
+  };
+
+  const handleGoBack = () => {
+    setShowOrders(false);
+  };
+
+
   if (!isLoggedIn) {
     return <Login handleLogin={handleLogin} />;
   }
@@ -83,22 +113,32 @@ function App() {
       <Header
         handleNewCategory={handleNewCategory}
         handleNewProduct={handleNewProduct}
+        handleShowOrders={handleShowOrder}
+        handleGoBack={handleGoBack} // Add handleGoBack prop
         categories={categories}
         products={products}
+        showOrders={showOrders}
       />
       <div className="container-fluid">
-        <ProductList categories={categories} products={products} addToCart={addToCart} />
-        <ShoppingCart
-          cart={cart}
-          removeFromCart={removeFromCart}
-          increaseFromCart={increaseFromCart}
-          decreaseFromCart={decreaseFromCart}
-          handlePlaceOrder={handlePlaceOrder}
-        />
+        {showOrders ? ( // Conditionally render OrderList
+          <OrderList orders={orders} />
+        ) : (
+          <>
+            <ProductList categories={categories} products={products} addToCart={addToCart} />
+            <ShoppingCart
+              cart={cart}
+              removeFromCart={removeFromCart}
+              increaseFromCart={increaseFromCart}
+              decreaseFromCart={decreaseFromCart}
+              handlePlaceOrder={handlePlaceOrder}
+            />
+          </>
+        )}
       </div>
       <Footer />
     </div>
   );
+
 }
 
 export default App;
