@@ -14,7 +14,7 @@ function ShoppingCart({ cart, removeFromCart, decreaseFromCart, increaseFromCart
             {cart.map((product) => (
               <div className="card mb-2">
                 <ShoppingCard
-                  key={product.id}
+                  key={product.idProduct}
                   product={product}
                   removeFromCart={removeFromCart}
                   decreaseFromCart={decreaseFromCart}

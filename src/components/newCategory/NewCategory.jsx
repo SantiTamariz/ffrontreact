@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function NewCategory({ handleNewCategory, hideNewCategory, categories }) {
   const [newCategoryName, setNewCategoryName] = useState('');
   // Find the highest ID in the current products list
-  const maxId = categories.reduce((max, product) => (product.id > max ? product.id : max), 0);
+  const maxId = categories.reduce((max, product) => (product.idProduct > max ? product.idProduct : max), 0);
 
   const handleNewCategorySave = () => {
     if (newCategoryName) {

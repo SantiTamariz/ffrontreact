@@ -10,7 +10,7 @@ function NewProduct({ handleNewProduct, hideNewProduct, categories, products }) 
     const [newProductImage, setNewProductImage] = useState(null);
     const [newProductFile, setNewProductFile] = useState('');
   
-    const maxId = products.reduce((max, product) => (product.id > max ? product.id : max), 0);
+    const maxId = products.reduce((max, product) => (product.idProduct > max ? product.idProduct : max), 0);
   
     const handleNewProductSave = () => {
       if (newProductName) {

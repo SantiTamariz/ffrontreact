@@ -35,7 +35,7 @@ function App() {
   };
 
   const addToCart = (product) => {
-    const cartItem = cart.find((item) => item.id === product.id);
+    const cartItem = cart.find((item) => item.id === product.idProduct);
     if (cartItem) {
       cartItem.quantity += 1;
       setCart([...cart]);
@@ -50,7 +50,7 @@ function App() {
     product.stock += 1;
 
     if (product.quantity === 0) {
-      setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
+      setCart((prevCart) => prevCart.filter((item) => item.id !== product.idProduct));
     } else {
       setCart([...cart]);
     }
@@ -63,7 +63,7 @@ function App() {
   };
 
   const removeFromCart = (product) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
+    setCart((prevCart) => prevCart.filter((item) => item.id !== product.idProduct));
     product.stock += product.quantity;
   };
 
@@ -73,10 +73,32 @@ function App() {
 
   const handleNewProduct = (product) => {
     setProducts([...products, product]);
-  };
+  }
 
   const handlePlaceOrder = () => {
-    setCart([]);
+    const order = {
+      totalPrice: cart.reduce((total, product) => total + product.price * product.quantity, 0),
+      idUser: userId,
+      products: cart.map((product) => ({ idProduct: product.idProduct })),
+    };
+  
+    fetch('http://localhost:8080/orders/save', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(order),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setCart([]);
+        setShowOrders(false); // Reset showOrders state to prevent OrderList from being displayed after placing an order
+      })
+      .catch((error) => {
+        console.error('Error placing order:', error);
+      });
+      setCart([]);
   };
 
   const handleShowOrder = () => {

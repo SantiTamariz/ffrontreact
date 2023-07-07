@@ -46,7 +46,7 @@ function ProductList({ categories, products, addToCart }) {
 
                   {selectedCategory === category.id &&
                     filteredProducts.map((product) => (
-                      <div className="card mb-2" key={product.id}>
+                      <div className="card mb-2" key={product.idProduct}>
                         <ProductCard product={product} addToCart={addToCart} />
                       </div>
                     ))}

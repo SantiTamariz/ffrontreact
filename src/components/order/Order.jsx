@@ -5,7 +5,7 @@ function Order({ products }) {
   return (
     <div className="order2-products">
       {products.map((product) => (
-        <div key={product.id} className="card2-product" data-code={product.code}>
+        <div key={product.idProduct} className="card2-product" data-code={product.code}>
           <div className="card2-img">
             <img
               className={`card2-img-top product-img-${product.code} ${product.stock === 0 ? 'out-of-stock' : ''}`}
